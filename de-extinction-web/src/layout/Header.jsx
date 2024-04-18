@@ -1,14 +1,18 @@
 import React from 'react';
 import '../App.css'; 
 import logo from '../assets/LogoDino.png';
-const Header = () => {
+
+const Header = ({ onLoginButtonClick }) => {
   return (
     <header className="header-container">
       <div className="header-left">
         <button className="header-button">Menú</button>
         <button className="header-button">Como se Juega</button>
         <button className="header-button">Descargar</button>
-        <button className="header-button">Iniciar Sesión</button>
+        {/* Botón "Iniciar Sesión" con función onClick */}
+        <button className="header-button" onClick={onLoginButtonClick}>
+          Iniciar Sesión
+        </button>
       </div>
       <div className="header-right">
         <img src={logo} alt="Logo" className="header-logo" />

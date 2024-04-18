@@ -72,3 +72,132 @@
   height: auto;
 }
 
+
+
+/****************************
+         LOGINFORM
+****************************/
+.login-form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form {
+  background-color: #182838;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.title {
+  color: white;
+}
+
+
+
+
+/***************************
+            BODY
+***************************/
+.title {
+  font-size: 7rem;
+}
+
+.title::before {
+  content: attr(data-text);
+  top: 0;
+  left: 0;
+  color: #8FFF00; 
+  background: linear-gradient(to right, #8FFF00, #FF8C00, #FF0000); 
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: fire 3s infinite alternate;
+}
+
+@keyframes fire {
+  from {
+    text-shadow: 0 0 10px #8FFF00, 0 0 20px #8FFF00, 0 0 30px #8FFF00, 0 0 40px #FF8C00, 0 0 50px #FF8C00, 0 0 60px #FF0000, 0 0 70px #FF8C00, 0 0 80px #8FFF00;
+  }
+  to {
+    text-shadow: 0 0 20px #8FFF00, 0 0 40px #8FFF00, 0 0 60px #8FFF00, 0 0 80px #FF8C00, 0 0 100px #FF8C00, 0 0 120px #FF0000, 0 0 140px #FF8C00, 0 0 160px #8FFF00;
+  }
+}
+.main-page {
+  position: relative;
+  width: 100%;
+  height: 100vh; 
+  overflow: hidden; 
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; 
+}
+
+
+.content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding-top: 20px; 
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #1C77AB;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #14546D;
+}
+
+
+
+/****************************
+          FOOTER
+****************************/
+.footer-container {
+  background-color: #1C1F20;
+  color: white;
+  padding: 20px;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.social-icons img {
+  width: 30px; /* Ajusta el tamaño de los iconos según sea necesario */
+  height: 30px; /* Ajusta el tamaño de los iconos según sea necesario */
+}
+
+
+
