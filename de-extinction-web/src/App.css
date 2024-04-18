@@ -36,3 +36,39 @@
     transform: rotate(360deg);
   }
 }
+
+/******************************
+            HEADER
+******************************/
+.header-container {
+  background-color: #1C1F20;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
+}
+
+.header-left {
+  display: flex;
+  gap: 10px;
+}
+
+.header-button {
+  background-color: transparent;
+  border: none;
+  color: #1C77AB;
+  cursor: pointer;
+  font-size: 16px;
+  transition: color 0.3s; 
+}
+
+.header-button:hover {
+  color: white; 
+}
+
+.header-logo {
+  width: 100px; 
+  height: auto;
+}
+
