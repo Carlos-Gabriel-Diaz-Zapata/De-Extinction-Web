@@ -22,6 +22,7 @@ const Footer = () => {
         <div>
           <img src={logo} alt="Logo" className="header-logo" />
         </div>
+        <div><h3>¡Únete a la comunidad de jugadores y descubre un mundo lleno de aventuras!</h3></div>
         <h4>© 2024 De-Extinction. All rights reserved.</h4>
       </div>
     </footer>

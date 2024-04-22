@@ -4,6 +4,7 @@ import LoginForm from '../Page/LoginForm';
 import React, { useState } from 'react';
 import BodyPage from '../Page/BodyPage';
 import Footer from '../layout/Footer';
+import HowToPlay from '../Page/HowToPlay';
 const PrincipalPage = () => {
   const [showLoginForm, setShowLoginForm] = useState(false); 
 
@@ -20,6 +21,7 @@ const PrincipalPage = () => {
       <Routes> 
         <Route path='/' element ={<BodyPage />} /> 
       </Routes>
+      <HowToPlay/>
       <Footer/>
     </div>
   );
