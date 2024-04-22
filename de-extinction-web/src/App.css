@@ -41,7 +41,7 @@
             HEADER
 ******************************/
 .header-container {
-  background-color: #1C1F20;
+  background-color: #212121;
   color: white;
   display: flex;
   justify-content: space-between;
@@ -116,11 +116,11 @@
   content: attr(data-text);
   top: 0;
   left: 0;
-  color: #8FFF00; 
-  background: linear-gradient(to right, #8FFF00, #FF8C00, #FF0000); 
+  color: #8FFF00; /* Color base */
+  background: linear-gradient(to right, #8FFF00, #FF8C00, #FF0000); /* Gradiente de colores */
   background-clip: text;
   -webkit-background-clip: text;
-  animation: fire 3s infinite alternate;
+  animation: fire 2s infinite alternate;
 }
 
 @keyframes fire {
@@ -131,10 +131,13 @@
     text-shadow: 0 0 20px #8FFF00, 0 0 40px #8FFF00, 0 0 60px #8FFF00, 0 0 80px #FF8C00, 0 0 100px #FF8C00, 0 0 120px #FF0000, 0 0 140px #FF8C00, 0 0 160px #8FFF00;
   }
 }
+
 .main-page {
   position: relative;
   width: 100%;
   height: 100vh; 
+  margin-bottom: -40px; /* Reduzco el margen inferior para compensar */
+
   overflow: hidden; 
 }
 
@@ -153,7 +156,7 @@
   position: relative;
   z-index: 1;
   text-align: center;
-  padding-top: 20px; 
+  padding-top: 100px; 
 }
 
 h1 {
@@ -181,9 +184,9 @@ button:hover {
           FOOTER
 ****************************/
 .footer-container {
-  background-color: #1C1F20;
+  background-color: #212121;
   color: white;
-  padding: 20px;
+  padding: 50px;
   text-align: center;
 }
 
@@ -206,14 +209,12 @@ button:hover {
 }
 
 
-
 /***************************
         COMO SE JUEGA
 ***************************/
 .how-to-play {
   text-align: center;
-  margin-top: 50px;
-  margin-bottom: 50px; 
+  background-color: #1C1F20;
 }
 
 .cards-container {
@@ -221,56 +222,109 @@ button:hover {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 40px; 
+  gap: 100px;
 }
+
 .card {
-  position: relative;
-  width: 250px;
-  height: 350px;
-  background-color: #f0f0f0;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  width: 280px;
+  height: 354px;
+  margin-bottom: 200px;
 }
 
-.card:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  transform: rotateY(180deg);
-}
-
-.card img {
+.content {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  border-bottom: 2px solid #ccc;
+  transform-style: preserve-3d;
+  transition: transform 300ms;
+  box-shadow: 0px 0px 10px 1px #ffffffee;
+  border-radius: 5px;
+ 
 }
 
-.card-info {
+
+.front-content img {
+  width: 80%; /* Ajusta el ancho de la imagen según tus necesidades */
+  padding-top: 50%;
+  max-width: 200px; /* Ajusta el ancho máximo de la imagen */
+  height: auto; /* Permite que la altura se ajuste automáticamente */
+  margin-bottom: 20px; /* Espacio inferior entre la imagen y el texto */
+}
+
+
+
+.front,
+.back {
+  background-color: #151515;
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  transform: rotateY(-180deg);
-  transition: transform 0.3s ease, visibility 0s linear; 
-  visibility: hidden; 
+  -webkit-backface-visibility: hidden;
+  border-radius: 5px;
+  overflow: hidden;
+  top: 0; 
+  left: 0; 
 }
 
-.card:hover .card-info {
-  transform: rotateY(0deg);
-  visibility: visible; 
-  transition: transform 0.3s ease, visibility 0s linear 0.2s; 
+.back {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: rotateY(180deg);
+}
+
+.back::before {
+  position: absolute;
+  content: ' ';
+  display: block;
+  width: 160px;
+  height: 160%;
+  background: transparent;
+  animation: rotation_481 5000ms infinite linear;
+}
+.card-footer {
+  text-align: center; 
+  font-size: 15px;
+  color: #1C77AB;
 }
 
 
-
-.card-info p {
-  margin: 0;
-  font-size: 14px;
-  transform: rotateY(180deg); 
+.back-content {
+  width: 99%;
+  height: 99%;
+  background-color: #182838;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
 }
+
+.card:hover .content {
+  transform: rotateY(180deg);
+}
+
+.title2 {
+  font-size: 11px;
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title2 p {
+  width: 50%;
+}
+
+.title3 {
+  margin-bottom: 50px;
+  font-size: 3rem;
+  color: #8FFF00;
+}
+
+
 
 
 
