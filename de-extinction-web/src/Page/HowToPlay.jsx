@@ -1,6 +1,6 @@
 import React from 'react';
-import fosil from '../assets/fondoDino.jpg'; // Importa la imagen
-
+import fosil from '../assets/fondoDino.jpg'; 
+import '../Page/Css/HowToPlay.css';
 const HowToPlay = () => {
   return (
     <div className="how-to-play">
@@ -23,7 +23,7 @@ const HowToPlay = () => {
                 <div className="title2">
                   <p className="card-footer"><strong>Objetivo del juego</strong></p>
                 </div>
-                <img src={fosil} alt="Imagen 1" /> {/* Añade la imagen */}
+                <img src={fosil} alt="Imagen 1" /> 
               </div>
             </div>
           </div>
@@ -46,7 +46,7 @@ const HowToPlay = () => {
                 <div className="title2">
                   <p className="card-footer"><strong>Mecánica de juego</strong></p>
                 </div>
-                <img src={fosil} alt="Imagen 2" /> {/* Añade la imagen */}
+                <img src={fosil} alt="Imagen 2" /> 
               </div>
             </div>
           </div>
@@ -71,7 +71,7 @@ const HowToPlay = () => {
                 <div className="title2">
                   <p className="card-footer"><strong>Consejos para el jugador</strong></p>
                 </div>
-                <img src={fosil} alt="Imagen 3" /> {/* Añade la imagen */}
+                <img src={fosil} alt="Imagen 3" /> 
               </div>
             </div>
           </div>

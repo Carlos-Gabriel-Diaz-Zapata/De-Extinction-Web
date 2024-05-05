@@ -1,0 +1,57 @@
+.login-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden; 
+}
+
+.t-rex-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    z-index: -1;
+}
+
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.computer-screen {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 300px;
+    height: 400px;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 12px;
+    padding-top: 50px;
+}
+
+input[type="text"],
+input[type="password"] {
+    background-color: #f3f3f3;
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #f2f2f2;
+}

@@ -1,9 +1,8 @@
 import React from 'react';
-import fosil from '../assets/fondoDino.jpg'; // Importa la imagen
-
+import fosil from '../assets/fondoDino.jpg';
+import '../Page/Css/WeAreDeExtinction.css'
 const WeAreDeExtinction = () => {
   const handleClick = () => {
-    // Add your button click logic here
     console.log('Button clicked!');
   };
 

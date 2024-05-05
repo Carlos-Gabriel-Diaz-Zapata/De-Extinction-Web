@@ -1,0 +1,53 @@
+
+/****************************
+         LOGINFORM
+****************************/
+.login-form-overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .login-form {
+    background-color: #182838;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+  }
+  
+  .titleform {
+    font-size: 25px;
+    color: white;
+    margin-bottom: 20px;
+  }
+  
+  
+  .button-container button {
+    margin: 10px;
+  }
+  
+  
+  .close-button {
+    position: absolute;
+    top: -12px;
+    right: 30px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  .close-button:hover{
+    background-color: #14546D;
+  
+  }
+  
+  .close-button img {
+    width: 20px;
+  }

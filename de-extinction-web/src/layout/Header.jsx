@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.css'; 
+import '../layout/Css/Header.css'; 
 import logo from '../assets/LogoDino.png';
 
 const Header = ({ onLoginButtonClick }) => {
@@ -9,7 +9,6 @@ const Header = ({ onLoginButtonClick }) => {
         <button className="header-button">Menú</button>
         <button className="header-button">Como se Juega</button>
         <button className="header-button">Descargar</button>
-        {/* Botón "Iniciar Sesión" con función onClick */}
         <button className="header-button" onClick={onLoginButtonClick}>
           Iniciar Sesión
         </button>

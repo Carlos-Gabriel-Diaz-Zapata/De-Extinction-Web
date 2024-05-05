@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.css';
+import '../layout/Css/Footer.css';
 import logo from '../assets/LogoDino.png';
 import logoX from '../assets/icons8-twitter-50.png';
 import insta from '../assets/icons8-instagram-50.png';
