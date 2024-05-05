@@ -4,7 +4,7 @@ import '../Page/Css/BodyPage.css';
 const BodyPage = () => {
     return (
       <div>
-        <div className="main-page">
+        <div className="main-page" id="menu">
           <video autoPlay loop muted className="background-video">
             <source src={trailer3} type="video/mp4"/>
           </video>

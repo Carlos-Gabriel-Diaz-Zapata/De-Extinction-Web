@@ -3,7 +3,8 @@ import fosil from '../assets/fondoDino.jpg';
 import '../Page/Css/HowToPlay.css';
 const HowToPlay = () => {
   return (
-    <div className="how-to-play">
+    
+    <div className="how-to-play" id="como-jugar">
       <h2 className='title3'>¿Cómo se juega?</h2>
       <div className="cards-container">
         {/* Tarjeta 1 */}

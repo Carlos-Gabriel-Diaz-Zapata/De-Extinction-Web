@@ -7,7 +7,7 @@ const WeAreDeExtinction = () => {
   };
 
   return (
-    <div className="container3">
+    <div className="container3" id="somos-de-extinction">
       <h1 className="title4">Somos De-Extinction</h1>
       <div>
       <h2 className="subtitle3">Desafía los límites</h2>

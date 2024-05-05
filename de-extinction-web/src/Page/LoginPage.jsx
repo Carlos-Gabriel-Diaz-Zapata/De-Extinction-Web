@@ -2,7 +2,8 @@ import React from 'react';
 import LoginPageCSS from '../Page/Css/LoginPage.css';
 import fondoDIno from '../assets/fondoDino.jpg'
 import { Link } from 'react-router-dom';
-const LoginPage = () => {
+import { fakeLogin } from '../services/Auth';
+const LoginPage = ( {onLogin} ) => {
     return (
         <div className="login-container">
             <img src={fondoDIno} alt="T-Rex" className="t-rex-image" />

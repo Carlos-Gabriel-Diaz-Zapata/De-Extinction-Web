@@ -8,6 +8,9 @@ const LoginForm = ({ onCloseForm }) => {
   const handleLoginButtonClick = () => {
     navigate('/Login'); 
   }
+  const handleRegisterButtonCLick = () => {
+    navigate('/register');
+  }
   const [showLoginForm, setShowLoginForm] = useState(true);
 
   const handleCloseForm = () => {
@@ -24,7 +27,7 @@ const LoginForm = ({ onCloseForm }) => {
             <h2 className='titleform'>\ PREPARADOS PARA JUGAR \</h2>
             <div className="button-container">
                 <button onClick={handleLoginButtonClick}>Iniciar Sesión</button>
-                <button>Crear Cuenta</button>
+                <button onClick={handleRegisterButtonCLick}>Crear Cuenta</button>
             </div>
           </div>
         </div>
