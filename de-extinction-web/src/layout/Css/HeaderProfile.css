@@ -1,0 +1,37 @@
+.header-containerProfile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #212121;
+    color: #fff;
+  }
+  
+  .header-leftProfile {
+    display: flex;
+  }
+  
+  .header-buttonProfile {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .header-buttonProfile:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .header-titleProfile {
+    font-size: 24px;
+  }
+
+.header-rightProfile{
+    justify-content: center;
+}
+
+
+  
