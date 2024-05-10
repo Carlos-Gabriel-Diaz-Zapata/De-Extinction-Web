@@ -26,8 +26,8 @@ const LoginForm = ({ onCloseForm }) => {
             <button className="close-button" onClick={handleCloseForm}><img src={closeIcon} alt="Cerrar" /></button>
             <h2 className='titleform'>\ PREPARADOS PARA JUGAR \</h2>
             <div className="button-container">
-                <button onClick={handleLoginButtonClick}>Iniciar Sesión</button>
-                <button onClick={handleRegisterButtonCLick}>Crear Cuenta</button>
+                <button className='button1' onClick={handleLoginButtonClick}>Iniciar Sesión</button>
+                <button className='button1' onClick={handleRegisterButtonCLick}>Crear Cuenta</button>
             </div>
           </div>
         </div>

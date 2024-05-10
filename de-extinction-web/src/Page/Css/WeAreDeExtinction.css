@@ -2,9 +2,10 @@
 /***************************
     WeAreDeExtinction
 ***************************/
+
 .container3 {
     text-align: center;
-      padding: 50px;
+    padding: 50px;
     background-color: #151515 ;
   }
   
@@ -16,9 +17,6 @@
   }
   
   .subtitle3 {
-    position: relative;
-    top: 50px;
-    left: 250px;
     font-size: 30px;
     margin-bottom: 30px;
     color: #8FFF00;

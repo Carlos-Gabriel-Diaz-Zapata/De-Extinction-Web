@@ -37,11 +37,17 @@
   
   .close-button {
     position: absolute;
-    top: -12px;
+    top: -11px;
     right: 30px;
     background-color: transparent;
     border: none;
     cursor: pointer;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
   }
   .close-button:hover{
     background-color: #14546D;

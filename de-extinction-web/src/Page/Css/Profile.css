@@ -1,6 +1,50 @@
-.profile-form {
-    width: 300px; 
-    margin-top: 100px; 
-    background-color: #1C1F20;
-
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1C1F20; 
 }
+
+.ProfileContainer1 {
+  background-image: url('../../assets/pixelcut-export.jpeg');
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.form-container1 {
+  width: 700px;
+  height: 180px;
+  background-color: rgba(28, 31, 32, 0.8);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.input-group1 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.input-group1 label {
+  color: white;
+  font-size: 20px;
+  margin-right: 70px;
+  width: 190px;
+}
+
+.input-group1 input {
+  flex: 1;
+  max-width: 300px;
+  width: 1000px;
+  padding: 5px 10px;
+}
+
+
+
+
+

@@ -11,7 +11,7 @@ const BodyPage = () => {
           <div className="content">
             <h1 className='title' data-text="De-Extinction"></h1>
             <h3 className='subtitle'>¡Corre sin límites en un mundo donde la aventura nunca termina!</h3>
-            <button>Descargar</button>
+            <button className='button1'>Descargar</button>
           </div>
         </div>
       </div>

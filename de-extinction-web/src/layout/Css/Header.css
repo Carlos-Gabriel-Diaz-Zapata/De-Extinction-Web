@@ -22,7 +22,7 @@
     color: #1C77AB;
     cursor: pointer;
     font-size: 16px;
-    transition: color 0.3s; 
+    transition: color 0.0s; 
   }
   
   .header-button:hover {
@@ -33,3 +33,5 @@
     width: 100px; 
     height: auto;
   }
+
+  

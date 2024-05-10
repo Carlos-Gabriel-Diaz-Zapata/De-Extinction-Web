@@ -61,7 +61,7 @@
     margin-bottom: 20px;
   }
   
-  button {
+  .button1 {
     background-color: #1C77AB;
     color: white;
     border: none;
@@ -71,6 +71,6 @@
     border-radius: 5px;
   }
   
-  button:hover {
+  .button1:hover {
     background-color: #14546D;
   }
