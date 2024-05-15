@@ -1,0 +1,65 @@
+.ScoresContainer {
+  background-image: url('../../assets/pixelcut-export.jpeg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scores-content {
+  background-color: rgba(0, 0, 0, 0.8); 
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 50px;
+  color: white;
+  width: 80%;
+  max-width: 800px;
+  text-align: center;
+}
+
+.scores-content h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.scores-table {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.scores-header,
+.score-entry {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.scores-header {
+  border-bottom: 2px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.header-item {
+  flex: 1;
+  text-align: center;
+}
+
+.score-entry {
+  align-items: center;
+  border-bottom: 1px solid #444;
+}
+
+.position,
+.username,
+.score {
+  flex: 1;
+  text-align: center;
+}
+
+.score img {
+  width: 24px; 
+  margin-left: 10px;
+}
