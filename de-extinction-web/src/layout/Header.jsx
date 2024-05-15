@@ -17,6 +17,10 @@ const Header = ({ onLoginButtonClick }) => {
     navigate('/scores')
   }
 
+  const handleAdmin = () => {
+    navigate('/admin')
+  }
+
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
     if (section) {
@@ -44,7 +48,7 @@ const Header = ({ onLoginButtonClick }) => {
         </button>
         <button className='header-button' onClick={handleProfile}>Perfil</button>
         <button className='header-button' onClick={handleScores}>Puntuaciones</button>
-        <button className='header-button'>Administrador</button>
+        <button className='header-button' onClick={handleAdmin}>Administrador</button>
         <button className='header-button'>Cerrar Cesión</button>
       </div>
       <div className='header-right'>
