@@ -74,9 +74,9 @@
     animation: rotation_481 5000ms infinite linear;
   }
   .card-footer {
-    text-align: center; 
     font-size: 15px;
     color: #1C77AB;
+    margin-left: 65px;
   }
   
   

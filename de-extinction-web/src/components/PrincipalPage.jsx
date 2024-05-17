@@ -4,6 +4,7 @@ import BodyPage from '../Page/BodyPage';
 import Footer from '../layout/Footer';
 import HowToPlay from '../Page/HowToPlay';
 import WeAreDeExtinction from '../Page/WeAreDeExtinction';
+import ScrollToTopButton from './ScrollToTopButton';
 
 const PrincipalPage = () => {
   return (
@@ -13,6 +14,7 @@ const PrincipalPage = () => {
       <HowToPlay/>
       <WeAreDeExtinction/>
       <Footer/>
+      <ScrollToTopButton />
     </div>
   );
 };

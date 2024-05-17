@@ -2,11 +2,9 @@ import React from 'react';
 import '../layout/Css/Header.css'; 
 import logo from '../assets/LogoDino.png';
 import { useState } from 'react';
-import LoginForm from '../Page/LoginForm';
 import { useNavigate } from 'react-router-dom'; 
 
 const Header = ({ onLoginButtonClick }) => {
-  const [showLoginForm, setShowLoginForm] = useState(false); 
   const navigate = useNavigate(); 
 
   const handleProfile = () => {
@@ -21,6 +19,10 @@ const Header = ({ onLoginButtonClick }) => {
     navigate('/admin')
   }
 
+  const handleLoginButtonClick = () => {
+    navigate('/Login'); 
+  }
+
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
     if (section) {
@@ -30,31 +32,25 @@ const Header = ({ onLoginButtonClick }) => {
       });
     }
   };
-  const handleLoginButtonClick = () => {
-    setShowLoginForm(true);
-  };
+ 
 
-  const handleCloseForm = () => {
-    setShowLoginForm(false);
-  };
+
   return (
     <header className='header-container'>
       <div className='header-left'>
-        <button className='header-button' onClick={() => scrollToSection('como-jugar')}>
-          Como se Juega</button>
+        <button className='header-button' onClick={() => scrollToSection('como-jugar')}>Como se Juega</button>
         <button className='header-button' onClick={() => scrollToSection('somos-de-extinction')}>Somos De-Extinction</button>
-        <button className='header-button' onClick={handleLoginButtonClick}>
-          Iniciar Sesión
-        </button>
+      </div>
+      <div className='header-center'>
         <button className='header-button' onClick={handleProfile}>Perfil</button>
         <button className='header-button' onClick={handleScores}>Puntuaciones</button>
         <button className='header-button' onClick={handleAdmin}>Administrador</button>
-        <button className='header-button'>Cerrar Cesión</button>
       </div>
       <div className='header-right'>
+        <button className='header-button' onClick={handleLoginButtonClick}>Iniciar Sesión</button>
+        <button className='header-button'>Cerrar Sesión</button>
         <img src={logo} alt='Logo' className='header-logo' />
       </div>
-      {showLoginForm && <LoginForm onCloseForm={handleCloseForm} />}
     </header>
   );
 }
