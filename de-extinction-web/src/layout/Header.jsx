@@ -1,26 +1,33 @@
-import React from 'react';
-import '../layout/Css/Header.css'; 
-import logo from '../assets/LogoDino.png';
-import { useState } from 'react';
+// src/layout/Header.js
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom'; 
+import { AuthContext } from '../context/AuthContext';
+import logo from '../assets/LogoDino.png';
+import '../layout/Css/Header.css'; 
 
-const Header = ({ onLoginButtonClick }) => {
+const Header = () => {
   const navigate = useNavigate(); 
+  const { user, logout } = useContext(AuthContext);
 
   const handleProfile = () => {
     navigate('/profile');
   }
 
   const handleScores = () => {
-    navigate('/scores')
+    navigate('/scores');
   }
 
   const handleAdmin = () => {
-    navigate('/admin')
+    navigate('/admin');
   }
 
   const handleLoginButtonClick = () => {
-    navigate('/Login'); 
+    navigate('/login'); 
+  }
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');
   }
 
   const scrollToSection = (id) => {
@@ -32,8 +39,6 @@ const Header = ({ onLoginButtonClick }) => {
       });
     }
   };
- 
-
 
   return (
     <header className='header-container'>
@@ -42,13 +47,20 @@ const Header = ({ onLoginButtonClick }) => {
         <button className='header-button' onClick={() => scrollToSection('somos-de-extinction')}>Somos De-Extinction</button>
       </div>
       <div className='header-center'>
-        <button className='header-button' onClick={handleProfile}>Perfil</button>
-        <button className='header-button' onClick={handleScores}>Puntuaciones</button>
-        <button className='header-button' onClick={handleAdmin}>Administrador</button>
+        {user && (
+          <>
+            <button className='header-button' onClick={handleProfile}>Perfil</button>
+            <button className='header-button' onClick={handleScores}>Puntuaciones</button>
+            <button className='header-button' onClick={handleAdmin}>Administrador</button>
+          </>
+        )}
       </div>
       <div className='header-right'>
-        <button className='header-button' onClick={handleLoginButtonClick}>Iniciar Sesión</button>
-        <button className='header-button'>Cerrar Sesión</button>
+        {user ? (
+          <button className='header-button' onClick={handleLogout}>Cerrar Sesión</button>
+        ) : (
+          <button className='header-button' onClick={handleLoginButtonClick}>Iniciar Sesión</button>
+        )}
         <img src={logo} alt='Logo' className='header-logo' />
       </div>
     </header>
