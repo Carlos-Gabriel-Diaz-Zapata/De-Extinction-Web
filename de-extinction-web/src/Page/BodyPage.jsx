@@ -2,6 +2,7 @@ import React from 'react';
 import trailer3 from '../assets/Trailer3.mp4';
 import '../Page/Css/BodyPage.css';
 const BodyPage = () => {
+  
     return (
       <div>
         <div className="main-page" id="menu">
