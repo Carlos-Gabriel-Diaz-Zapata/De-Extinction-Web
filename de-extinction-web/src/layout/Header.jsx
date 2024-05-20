@@ -1,4 +1,3 @@
-// src/layout/Header.js
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import { AuthContext } from '../context/AuthContext';
@@ -51,7 +50,9 @@ const Header = () => {
           <>
             <button className='header-button' onClick={handleProfile}>Perfil</button>
             <button className='header-button' onClick={handleScores}>Puntuaciones</button>
-            <button className='header-button' onClick={handleAdmin}>Administrador</button>
+            {user.admin && ( // Mostrar el botón Administrador solo si el usuario es admin
+              <button className='header-button' onClick={handleAdmin}>Administrador</button>
+            )}
           </>
         )}
       </div>

@@ -15,7 +15,7 @@ const LoginPage = () => {
     try {
       await login(username, password);
       alert('Inicio de sesión exitoso');
-      navigate('/'); 
+      navigate('/');
     } catch (error) {
       alert(error.message);
     }
@@ -28,18 +28,18 @@ const LoginPage = () => {
         <div className="computer-screen">
           <h2>Iniciar Sesión</h2>
           <form onSubmit={handleSubmit}>
-            <input 
-              type="text" 
-              placeholder='NOMBRE DE USUARIO' 
-              value={username} 
-              onChange={(e) => setUsername(e.target.value)} 
+            <input
+              type="text"
+              placeholder='NOMBRE DE USUARIO'
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
             <br/>
-            <input 
-              type="password" 
-              placeholder='CONTRASEÑA' 
-              value={password} 
-              onChange={(e) => setPassword(e.target.value)} 
+            <input
+              type="password"
+              placeholder='CONTRASEÑA'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
             <br/>
             <button className='buttonLog' type="submit">Iniciar Sesión</button>

@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
 import ApiService from '../services/ApiService';
+
 // Crea un contexto de autenticación
 export const AuthContext = createContext();
 
@@ -18,28 +19,30 @@ export const AuthProvider = ({ children }) => {
     }
   }, []); // El arreglo vacío indica que esto se ejecuta solo una vez al montar el componente
 
-    // Función para manejar el inicio de sesión
+  // Función para manejar el inicio de sesión
   const loginHandler = async (username, password) => {
     try {
-       // Utilizo la función login importada desde ApiService
+      // Utilizo la función login importada desde ApiService
       const response = await ApiService.login(username, password);
-      if (response.data.error) {
-        throw new Error(response.data.error);
-      }
-       // Si el inicio de sesión es exitoso, guarda la información del usuario en el estado y en localStorage
-      setUser(response.data);
-      localStorage.setItem('user', JSON.stringify(response.data));
+
+      // Asumiendo que response contiene la información del usuario
+      setUser(response);
+      // Guarda la información del usuario en localStorage
+      localStorage.setItem('user', JSON.stringify(response));
     } catch (error) {
-      if (error.response && error.response.status === 404) {
-        throw new Error('Usuario no encontrado');
-      } else if (error.response && error.response.status === 401) {
-        throw new Error('Contraseña incorrecta');
-      } else {
-        throw new Error('Error al iniciar sesión');
+      // Manejo de errores basado en el código de estado HTTP de la respuesta
+      if (error.response) {
+        if (error.response.status === 404) {
+          throw new Error('Usuario no encontrado');
+        } else if (error.response.status === 401) {
+          throw new Error('Contraseña incorrecta');
+        }
       }
+      throw new Error('Error al iniciar sesión');
     }
   };
 
+  // Función para manejar el cierre de sesión
   const logoutHandler = () => {
     // Elimina la información del usuario del estado y de localStorage
     setUser(null);
@@ -47,8 +50,9 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
+    // Proveedor de contexto que proporciona los datos del usuario y las funciones de login y logout a sus hijos
     <AuthContext.Provider value={{ user, login: loginHandler, logout: logoutHandler }}>
-      {children} {/* Renderiza los hijos del proveedor que consumirán los datos y funciones proporcionados */}
+      {children}
     </AuthContext.Provider>
   );
 };
