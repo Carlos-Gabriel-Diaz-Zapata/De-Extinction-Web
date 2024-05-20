@@ -12,6 +12,10 @@ const LoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!username || !password) {
+      alert('Por favor, ingresa tanto el nombre de usuario como la contraseña.');
+      return;
+    }
     try {
       await login(username, password);
       alert('Inicio de sesión exitoso');
@@ -28,18 +32,20 @@ const LoginPage = () => {
         <div className="computer-screen">
           <h2>Iniciar Sesión</h2>
           <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              placeholder='NOMBRE DE USUARIO'
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+            <input 
+              type="text" 
+              placeholder='NOMBRE DE USUARIO' 
+              value={username} 
+              onChange={(e) => setUsername(e.target.value)} 
+              required
             />
             <br/>
-            <input
-              type="password"
-              placeholder='CONTRASEÑA'
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+            <input 
+              type="password" 
+              placeholder='CONTRASEÑA' 
+              value={password} 
+              onChange={(e) => setPassword(e.target.value)} 
+              required
             />
             <br/>
             <button className='buttonLog' type="submit">Iniciar Sesión</button>

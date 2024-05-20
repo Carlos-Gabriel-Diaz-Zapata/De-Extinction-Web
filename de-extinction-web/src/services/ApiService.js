@@ -25,8 +25,26 @@ const fetchAllUsers = async () => {
 
 // Función para crear un nuevo usuario
 const createUser = async (user) => {
-  const response = await axios.post(`${API_BASE_URL}/users`, user);
-  return response.data;
+  try {
+    console.log('Iniciando creación de usuario', user);
+    const response = await axios.post(`${API_BASE_URL}/users`, user);
+    console.log('Usuario creado', response.data);
+    
+    if (user.admin) {
+      try {
+        const adminResponse = await axios.post(`${API_BASE_URL}/admins`, { userId: response.data.userId });
+        console.log('Administrador creado', adminResponse.data);
+      } catch (adminError) {
+        console.error('Error creando administrador:', adminError);
+        // No lanzar error aquí para que no interrumpa el flujo principal
+      }
+    }
+    return response.data;
+  } catch (error) {
+    console.error('Error creando usuario:', error);
+    // No lanzar error aquí para que no interrumpa el flujo principal
+    return null;
+  }
 };
 
 // Función para actualizar un usuario existente
@@ -40,6 +58,12 @@ const deleteUser = async (id) => {
   await axios.delete(`${API_BASE_URL}/users/${id}`);
 };
 
+// Función para obtener un usuario por su ID
+const getUserById = async (userId) => {
+  const response = await axios.get(`${API_BASE_URL}/users/${userId}`);
+  return response.data;
+};
+
 
 
 const ApiService = {
@@ -49,6 +73,7 @@ const ApiService = {
   createUser,
   updateUser,
   deleteUser,
+  getUserById,
 };
 
 export default ApiService;

@@ -1,5 +1,5 @@
 import Header from '../layout/Header';
-import React, { useState } from 'react';
+import React from 'react';
 import BodyPage from '../Page/BodyPage';
 import Footer from '../layout/Footer';
 import HowToPlay from '../Page/HowToPlay';
