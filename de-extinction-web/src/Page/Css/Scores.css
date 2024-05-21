@@ -62,7 +62,15 @@
   text-align: center;
 }
 
-.score img {
-  width: 24px; 
+.score-trophy-container {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+}
+
+.trophy-image,
+.random-image {
+  width: 30px;
+  height: auto;
   margin-left: 10px;
 }

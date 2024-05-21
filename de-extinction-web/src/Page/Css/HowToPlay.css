@@ -1,115 +1,72 @@
-
-/***************************
-        COMO SE JUEGA
-***************************/
 .how-to-play {
-    text-align: center;
-    background-color: #1C1F20;
-  }
-  
-  .cards-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 100px;
-  }
-  
-  .card {
-    width: 280px;
-    height: 354px;
-    margin-bottom: 200px;
-  }
-  
-  .content {
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 300ms;
-    box-shadow: 0px 0px 10px 1px #ffffffee;
-    border-radius: 5px;
-   
-  }
-  
-  
-  .front-content img {
-    width: 80%; 
-    padding-top: 50%;
-    max-width: 200px; 
-    height: auto;
-    margin-bottom: 20px; 
-  }
-  
-  
-  
-  .front,
-  .back {
-    background-color: #151515;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    border-radius: 5px;
-    overflow: hidden;
-    top: 0; 
-    left: 0; 
-  }
-  
-  .back {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transform: rotateY(180deg);
-  }
-  
-  .back::before {
-    position: absolute;
-    content: ' ';
-    display: block;
-    width: 160px;
-    height: 160%;
-    background: transparent;
-    animation: rotation_481 5000ms infinite linear;
-  }
-  .card-footer {
-    font-size: 15px;
-    color: #1C77AB;
-    margin-left: 65px;
-  }
-  
-  
-  .back-content {
-    width: 99%;
-    height: 99%;
-    background-color: #182838;
-    border-radius: 5px;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-  }
-  
-  .card:hover .content {
-    transform: rotateY(180deg);
-  }
-  
-  .title2 {
-    font-size: 11px;
-    max-width: 100%;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .title2 p {
-    width: 50%;
-  }
-  
-  .title3 {
-    margin-bottom: 50px;
-    font-size: 3rem;
-    color: #8FFF00;
-  }
+  text-align: center;
+  background-color: #1C1F20;
+  padding: 40px 0;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  width: 300px;
+  height: 450px;
+  background: #313131;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: 0.2s ease-in-out;
+  padding: 20px;
+  position: relative;
+}
+
+.thumb-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.thumb-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.textBox {
+  text-align: center;
+  transition: 0.2s ease-in-out;
+}
+
+.card:hover .textBox {
+  opacity: 1;
+}
+
+.card:hover {
+  transform: scale(1.04) rotate(-1deg);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.title3 {
+  margin-bottom: 50px;
+  font-size: 3rem;
+  color: #8FFF00;
+}
+
+svg {
+  fill: #8C8C8C;
+}
