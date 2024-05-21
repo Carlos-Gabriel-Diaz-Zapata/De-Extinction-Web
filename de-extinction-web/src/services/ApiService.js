@@ -53,6 +53,13 @@ const updateUser = async (id, user) => {
   return response.data;
 };
 
+// Función para actualizar el puntaje del jugador
+const updatePlayerScore = async (name, score) => {
+  const response = await axios.put(`${API_BASE_URL}/players/${name}/${score}`);
+  return response.data;
+};
+
+
 // Función para eliminar un usuario
 const deleteUser = async (id) => {
   await axios.delete(`${API_BASE_URL}/users/${id}`);
@@ -74,6 +81,7 @@ const ApiService = {
   updateUser,
   deleteUser,
   getUserById,
+  updatePlayerScore,
 };
 
 export default ApiService;

@@ -1,38 +1,48 @@
-import React, { useContext } from 'react';
-import '../Page/Css/Profile.css';
-import HeaderProfile from '../layout/HeaderProfile';
-import { AuthContext } from '../context/AuthContext';
+import React, { useState, useEffect } from "react";
+import ApiService from '../services/ApiService';
+import "../Page/Css/Scores.css";
+import HeaderScores from "../layout/HeaderScores";
 
-const Profile = () => {
-  const { user } = useContext(AuthContext);
+const Scores = () => {
+  const [scores, setScores] = useState([]);
 
-  if (!user) {
-    return <div>No estás autenticado</div>;
-  }
+  useEffect(() => {
+    const fetchScores = async () => {
+      try {
+        const scoresData = await ApiService.fetchTopScores();
+        setScores(scoresData);
+      } catch (error) {
+        console.error('Error fetching scores:', error);
+      }
+    };
+
+    fetchScores();
+  }, []);
 
   return (
     <div>
-      <HeaderProfile />
-      <div className="ProfileContainer1">
-        <div className="form-container1">
-          <form>
-            <div className="input-group1">
-              <label>Correo Electrónico:</label>
-              <input type="text" value={user.email} disabled />
+      <HeaderScores />
+      <div className="ScoresContainer">
+        <div className="scores-content">
+          <h2>Descubre las mejores puntuaciones</h2>
+          <div className="scores-table">
+            <div className="scores-header">
+              <div className="header-item">Posición</div>
+              <div className="header-item">Jugadores</div>
+              <div className="header-item">Puntos</div>
             </div>
-            <div className="input-group1">
-              <label>Nombre de usuario:</label>
-              <input type="text" value={user.name} disabled />
-            </div>
-            <div className="input-group1">
-              <label>Contraseña:</label>
-              <input type="password" value={user.password} disabled />
-            </div>
-          </form>
+            {scores.map((data, index) => (
+              <div key={index} className="score-entry">
+                <div className="position">{index + 1}</div>
+                <div className="username">{data.name}</div>
+                <div className="score">{data.score} Puntos</div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default Profile;
+export default Scores;
