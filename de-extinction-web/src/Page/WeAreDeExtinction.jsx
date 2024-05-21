@@ -9,10 +9,10 @@ const WeAreDeExtinction = () => {
   const [selectedDino, setSelectedDino] = useState(null);
 
   const dinos = [
-    { id: 1, img: dino1, description: 'Descripción del Dinosaurio 1' },
-    { id: 2, img: dino2, description: 'Descripción del Dinosaurio 2' },
-    { id: 3, img: dino3, description: 'Descripción del Dinosaurio 3' },
-    { id: 4, img: dino4, description: 'Descripción del Dinosaurio 4' },
+    { id: 1, img: dino1, description: 'Un dinosaurio curioso y aventurero que siempre está en busca de nuevas aventuras.' },
+    { id: 2, img: dino2, description: 'Un dinosaurio amigable y protector que se preocupa por sus amigos, le encanta el bosque.' },
+    { id: 3, img: dino3, description: 'Un dinosaurio valiente y fuerte que lidera con el ejemplo, es el mas desafiante de todos.' },
+    { id: 4, img: dino4, description: 'Un dinosaurio rápido y ágil, conocido por su destreza y velocidad, tiene la velocidad de un rayo.' },
   ];
 
   return (
