@@ -40,41 +40,47 @@ const EditUserPage = () => {
 
   return (
     <div>
-    <HeaderEditUser/>
-    <div className="edit-user-container">
-      <h2>Editar Usuario</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>Nombre</label>
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-            />
-        </div>
-        <div className="form-group">
-          <label>Email</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            />
-        </div>
-        <div className="form-group">
-          <label>Contraseña</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            />
-        </div>
-        <button type="submit" className="edit-user-btn">Actualizar</button>
-      </form>
+      <HeaderEditUser />
+
+    <div className="edit-user-page">
+      <div className="login-box">
+        <form onSubmit={handleSubmit}>
+          <div className="user-box">
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+              />
+            <label>Nombre</label>
+          </div>
+          <div className="user-box">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              />
+            <label>Email</label>
+          </div>
+          <div className="user-box">
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              />
+            <label>Contraseña</label>
+          </div>
+          <center>
+            <button type="submit" className="submit-btn">
+              <span></span>Actualizar
+            </button>
+          </center>
+        </form>
+      </div>
     </div>
-    </div>
+  </div>
   );
 };
 
