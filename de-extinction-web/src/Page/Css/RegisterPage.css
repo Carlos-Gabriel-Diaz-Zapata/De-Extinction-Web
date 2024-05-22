@@ -56,13 +56,48 @@ p {
     font-size: 12px;
     padding-top: 50px;
 }
+.input-group {
+    margin-bottom: 20px;
+    text-align: center;
+    
+}
 
+input[type="email"],
 input[type="text"],
 input[type="password"] {
     background-color: #f3f3f3;
-    width: 80%;
+    width: 100%;
     padding: 10px;
-    margin-bottom: 20px;
     border: 1px solid #f2f2f2;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin: 10px;
+    text-align: center;
+
 }
 
+
+.button-container {
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+
+}
+
+button.buttonLog {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button.buttonLog:hover {
+    background-color: #45a049;
+}
+
+button[type="submit"] {
+    margin-top: 20px;
+}

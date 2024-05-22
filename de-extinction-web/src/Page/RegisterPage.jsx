@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import ApiService from '../services/ApiService';
 import '../Page/Css/RegisterPage.css';
 import fondoDino from '../assets/fondoDino.jpg';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const RegisterPage = () => {
   const [email, setEmail] = useState('');
@@ -15,10 +17,10 @@ const RegisterPage = () => {
     const userData = { name, email, password };
     try {
       await ApiService.createUser(userData);
-      alert('Cuenta creada exitosamente');
+      alert('Usuario creado exitosamente');
       navigate('/login');
     } catch (error) {
-      alert(error.message);
+      toast.error(error.message || 'Error creando cuenta');
     }
   };
 
@@ -62,6 +64,7 @@ const RegisterPage = () => {
           </form>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

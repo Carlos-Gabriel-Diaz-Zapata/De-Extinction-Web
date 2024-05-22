@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import fondoDino from '../assets/fondoDino.jpg';
 import '../Page/Css/LoginPage.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const LoginPage = () => {
   const { login } = useContext(AuthContext);
@@ -13,7 +15,7 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!username || !password) {
-      alert('Por favor, ingresa tanto el nombre de usuario como la contraseña.');
+      toast.warn('Por favor, ingresa tanto el nombre de usuario como la contraseña.');
       return;
     }
     try {
@@ -21,7 +23,7 @@ const LoginPage = () => {
       alert('Inicio de sesión exitoso');
       navigate('/');
     } catch (error) {
-      alert(error.message);
+      toast.error(error.message);
     }
   };
 
@@ -54,6 +56,7 @@ const LoginPage = () => {
           </form>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

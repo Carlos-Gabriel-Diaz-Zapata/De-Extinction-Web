@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import ApiService from '../services/ApiService';
 import '../Page/Css/AdminPage.css';
 import HeaderAdminPage from '../layout/HeaderAdminPage';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AdminPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -32,10 +34,10 @@ const AdminPage = () => {
       try {
         await ApiService.deleteUser(userId);
         setUsers(users.filter((user) => user.userId !== userId));
-        alert('Usuario eliminado exitosamente');
+        toast.success('Usuario eliminado exitosamente');
       } catch (error) {
         console.error('Error deleting user:', error);
-        alert('Error eliminando usuario');
+        toast.error('Error eliminando usuario');
       }
     }
   };
@@ -91,6 +93,7 @@ const AdminPage = () => {
           </div>
         </section>
       </div>
+      <ToastContainer />
     </div>
   );
 };

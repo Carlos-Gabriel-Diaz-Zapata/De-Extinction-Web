@@ -3,6 +3,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import ApiService from '../services/ApiService';
 import '../Page/Css/EditUserPage.css';
 import HeaderEditUser from '../layout/HeaderEditUser';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const EditUserPage = () => {
   const { userId } = useParams();
@@ -20,6 +22,7 @@ const EditUserPage = () => {
         setPassword(user.password);
       } catch (error) {
         console.error('Error obteniendo usuario:', error);
+        toast.error('Error obteniendo usuario');
       }
     };
 
@@ -30,11 +33,11 @@ const EditUserPage = () => {
     event.preventDefault();
     try {
       await ApiService.updateUser(userId, { name, email, password });
-      alert('Usuario actualizado exitosamente');
+      toast.success('Usuario actualizado exitosamente');
       navigate('/admin');
     } catch (error) {
       console.error('Error actualizando usuario:', error);
-      alert(error.message);
+      toast.error(error.message || 'Error actualizando usuario');
     }
   };
 
@@ -80,6 +83,7 @@ const EditUserPage = () => {
         </form>
       </div>
     </div>
+    <ToastContainer />
   </div>
   );
 };
