@@ -1,31 +1,34 @@
 import React, { useState, useEffect } from "react";
-import ApiService from '../services/ApiService';
+import ApiService from "../services/ApiService";
 import "../Page/Css/Scores.css";
 import HeaderScores from "../layout/HeaderScores";
-import goldTrophy from '../assets/Copa1.png';
-import silverTrophy from '../assets/Copa2.png';
-import bronzeTrophy from '../assets/Copa3.png';
-import image1 from '../assets/Dino1G.png';
-import image2 from '../assets/Dino2G.png';
-import image3 from '../assets/Dino3G.png';
-import image4 from '../assets/Dino4G.png';
+import goldTrophy from "../assets/Copa1.png";
+import silverTrophy from "../assets/Copa2.png";
+import bronzeTrophy from "../assets/Copa3.png";
+import image1 from "../assets/Dino1G.png";
+import image2 from "../assets/Dino2G.png";
+import image3 from "../assets/Dino3G.png";
+import image4 from "../assets/Dino4G.png";
 
+// Scores component to display the top scores
 const Scores = () => {
-  const [scores, setScores] = useState([]);
+  const [scores, setScores] = useState([]); // State to store the scores
 
+  // useEffect hook to fetch scores when the component mounts
   useEffect(() => {
     const fetchScores = async () => {
       try {
-        const scoresData = await ApiService.fetchTopScores();
-        setScores(scoresData);
+        const scoresData = await ApiService.fetchTopScores(); // Fetch top scores from the API
+        setScores(scoresData); // Update state with fetched scores
       } catch (error) {
-        console.error('Error fetching scores:', error);
+        console.error("Error fetching scores:", error);
       }
     };
 
     fetchScores();
   }, []);
 
+  // Function to get the trophy image based on the index
   const getTrophyImage = (index) => {
     switch (index) {
       case 0:
@@ -39,6 +42,7 @@ const Scores = () => {
     }
   };
 
+  // Function to get a random image for players beyond the top 3
   const getRandomImage = () => {
     const images = [image1, image2, image3, image4];
     return images[Math.floor(Math.random() * images.length)];
@@ -46,7 +50,7 @@ const Scores = () => {
 
   return (
     <div>
-      <HeaderScores />
+      <HeaderScores /> {/* Render header for scores page */}
       <div className="ScoresContainer">
         <div className="scores-content">
           <h2>Descubre las mejores puntuaciones</h2>
@@ -56,6 +60,7 @@ const Scores = () => {
               <div className="header-item">Jugadores</div>
               <div className="header-item">Puntos</div>
             </div>
+            {/* Map over the scores array to render each score entry */}
             {scores.map((data, index) => (
               <div key={index} className="score-entry">
                 <div className="position">{index + 1}</div>
@@ -64,15 +69,17 @@ const Scores = () => {
                   <div className="score-trophy-container">
                     {data.score} Puntos
                     {index < 3 ? (
-                      <img 
-                        src={getTrophyImage(index)} 
-                        alt={`Trophy ${index + 1}`} 
+                      // Render trophy image for top 3 players
+                      <img
+                        src={getTrophyImage(index)}
+                        alt={`Trophy ${index + 1}`}
                         className="trophy-image"
                       />
                     ) : (
-                      <img 
-                        src={getRandomImage()} 
-                        alt={`Player ${index + 1}`} 
+                      // Render random image for other players
+                      <img
+                        src={getRandomImage()}
+                        alt={`Player ${index + 1}`}
                         className="random-image"
                       />
                     )}

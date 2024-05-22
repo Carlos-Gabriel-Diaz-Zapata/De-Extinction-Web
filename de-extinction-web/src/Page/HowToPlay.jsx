@@ -4,7 +4,9 @@ import Mecanicas from '../assets/Mecanica.png';
 import Objetivo from '../assets/Objetivo.png';
 import '../Page/Css/HowToPlay.css';
 
+// HowToPlay component to display the instructions on how to play the game
 const HowToPlay = () => {
+  // Array of card objects containing image, title, and description for each card
   const cards = [
     {
       img: Objetivo,
@@ -27,6 +29,7 @@ const HowToPlay = () => {
     <div className="how-to-play" id="como-jugar">
       <h2 className="title3">¿Cómo se juega?</h2>
       <div className="cards-container">
+        {/* Map over the cards array to render each card */}
         {cards.map((card, index) => (
           <div className="card" key={index}>
             <div className="thumb-title">

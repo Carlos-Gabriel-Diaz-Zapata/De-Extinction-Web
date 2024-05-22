@@ -6,13 +6,17 @@ import HeaderEditUser from '../layout/HeaderEditUser';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+// This is a functional component that represents the EditUserPage
 const EditUserPage = () => {
+  // These state variables store the values of the form fields
   const { userId } = useParams();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  // This variable uses the useNavigate hook to navigate to other pages
   const navigate = useNavigate();
 
+  // This useEffect hook fetches the user data when the component mounts
   useEffect(() => {
     const fetchUser = async () => {
       try {
@@ -29,6 +33,7 @@ const EditUserPage = () => {
     fetchUser();
   }, [userId]);
 
+  // This function handles the submission of the form
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -41,50 +46,51 @@ const EditUserPage = () => {
     }
   };
 
+  // This is the JSX returned by the component
   return (
     <div>
       <HeaderEditUser />
-
-    <div className="edit-user-page">
-      <div className="login-box">
-        <form onSubmit={handleSubmit}>
-          <div className="user-box">
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
+      <div className="edit-user-page">
+        <div className="login-box">
+          {/* This form allows the user to edit an existing user */}
+          <form onSubmit={handleSubmit}>
+            <div className="user-box">
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
               />
-            <label>Nombre</label>
-          </div>
-          <div className="user-box">
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
+              <label>Nombre</label>
+            </div>
+            <div className="user-box">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
               />
-            <label>Email</label>
-          </div>
-          <div className="user-box">
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
+              <label>Email</label>
+            </div>
+            <div className="user-box">
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
               />
-            <label>Contraseña</label>
-          </div>
-          <center>
-            <button type="submit" className="submit-btn">
-              <span></span>Actualizar
-            </button>
-          </center>
-        </form>
+              <label>Contraseña</label>
+            </div>
+            <center>
+              <button type="submit" className="submit-btn">
+                <span></span>Actualizar
+              </button>
+            </center>
+          </form>
+        </div>
       </div>
+      <ToastContainer />
     </div>
-    <ToastContainer />
-  </div>
   );
 };
 

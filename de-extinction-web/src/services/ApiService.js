@@ -1,8 +1,8 @@
-import axios from 'axios';
+import axios from "axios";
 
-const API_BASE_URL = 'http://localhost:8082/api/v1';
+const API_BASE_URL = "http://localhost:8082/api/v1";
 
-// Función para realizar el login
+// Function to perform login
 const login = async (username, password) => {
   const response = await axios.post(`${API_BASE_URL}/users/login`, {
     name: username,
@@ -11,81 +11,85 @@ const login = async (username, password) => {
   return response.data;
 };
 
-// Función para obtener las mejores puntuaciones
+// Function to fetch top scores
 const fetchTopScores = async () => {
   const response = await axios.get(`${API_BASE_URL}/players/scores`);
   return response.data;
 };
 
-// Función para obtener todos los usuarios
+// Function to fetch all users
 const fetchAllUsers = async () => {
   const response = await axios.get(`${API_BASE_URL}/users`);
   return response.data;
 };
 
-// Función para crear un nuevo usuario
+// Function to create a new user
 const createUser = async (user) => {
   try {
-    // Verificar si el nombre de usuario ya existe
+    // Check if the username already exists
     const existingUsers = await fetchAllUsers();
-    const userExists = existingUsers.some(existingUser => existingUser.name === user.name);
+    const userExists = existingUsers.some(
+      (existingUser) => existingUser.name === user.name
+    );
     if (userExists) {
-      throw new Error('El nombre de usuario ya existe');
+      throw new Error("El nombre de usuario ya existe");
     }
-    
-    console.log('Iniciando creación de usuario', user);
+
+    console.log("Iniciando creación de usuario", user);
     const response = await axios.post(`${API_BASE_URL}/users`, user);
-    console.log('Usuario creado', response.data);
-    
+    console.log("Usuario creado", response.data);
+
     if (user.admin) {
       try {
-        const adminResponse = await axios.post(`${API_BASE_URL}/admins`, { userId: response.data.userId });
-        console.log('Administrador creado', adminResponse.data);
+        const adminResponse = await axios.post(`${API_BASE_URL}/admins`, {
+          userId: response.data.userId,
+        });
+        console.log("Administrador creado", adminResponse.data);
       } catch (adminError) {
-        console.error('Error creando administrador:', adminError);
-        // No lanzar error aquí para que no interrumpa el flujo principal
+        console.error("Error creando administrador:", adminError);
+        // Do not throw error here to avoid interrupting the main flow
       }
     }
     return response.data;
   } catch (error) {
-    console.error('Error creando usuario:', error);
+    console.error("Error creando usuario:", error);
     throw error;
   }
 };
 
-// Función para actualizar un usuario existente
+// Function to update an existing user
 const updateUser = async (id, user) => {
-  // Verificar si el nombre de usuario ya existe
+  // Check if the username already exists
   const existingUsers = await fetchAllUsers();
-  const userExists = existingUsers.some(existingUser => existingUser.name === user.name && existingUser.id !== id);
+  const userExists = existingUsers.some(
+    (existingUser) => existingUser.name === user.name && existingUser.id !== id
+  );
   if (userExists) {
-    throw new Error('El nombre de usuario ya existe');
+    throw new Error("El nombre de usuario ya existe");
   }
 
   const response = await axios.put(`${API_BASE_URL}/users/${id}`, user);
   return response.data;
 };
 
-// Función para actualizar el puntaje del jugador
+// Function to update the player's score
 const updatePlayerScore = async (name, score) => {
   const response = await axios.put(`${API_BASE_URL}/players/${name}/${score}`);
   return response.data;
 };
 
-
-// Función para eliminar un usuario
+// Function to delete a user
 const deleteUser = async (id) => {
   await axios.delete(`${API_BASE_URL}/users/${id}`);
 };
 
-// Función para obtener un usuario por su ID
+// Function to fetch a user by their ID
 const getUserById = async (userId) => {
   const response = await axios.get(`${API_BASE_URL}/users/${userId}`);
   return response.data;
 };
 
-
-
+// ApiService object to export all functions
 const ApiService = {
   login,
   fetchTopScores,

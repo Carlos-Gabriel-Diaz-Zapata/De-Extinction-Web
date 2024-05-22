@@ -9,40 +9,40 @@ import AdminPage from './Page/AdminPage';
 import CreateUserPage from './Page/CreateUserPage';
 import EditUserPage from './Page/EditUserPage';
 import { AuthProvider } from './context/AuthContext';
-import ProtectedRoute from './components/ProtectedRoute ';
+import ProtectedRoute from './components/ProtectedRoute';
 import AdminRoute from './components/AdminRoute';
 
 function App() {
   return (
     <div className='App'>
-      <AuthProvider>
-        <Router>
+      <AuthProvider> {/* Provide authentication context to the app */}
+        <Router> {/* Setup router for handling routes */}
           <Routes>
-            <Route path='/' element={<PrincipalPage />} />
-            <Route path='/login' element={<LoginPage />} />
-            <Route path='/register' element={<RegisterPage />} />
+            <Route path='/' element={<PrincipalPage />} /> {/* Route to principal page */}
+            <Route path='/login' element={<LoginPage />} /> {/* Route to login page */}
+            <Route path='/register' element={<RegisterPage />} /> {/* Route to register page */}
             <Route path='/profile' element={
-              <ProtectedRoute>
+              <ProtectedRoute> {/* Protect the profile route */}
                 <Profile />
               </ProtectedRoute>
             } />
             <Route path='/scores' element={
-              <ProtectedRoute>
+              <ProtectedRoute> {/* Protect the scores route */}
                 <Scores />
               </ProtectedRoute>
             } />
             <Route path='/admin' element={
-              <AdminRoute>
+              <AdminRoute> {/* Protect the admin route */}
                 <AdminPage />
               </AdminRoute>
             } />
             <Route path="/admin/new" element={
-              <AdminRoute>
+              <AdminRoute> {/* Protect the create user route */}
                 <CreateUserPage />
               </AdminRoute>
             } />
             <Route path="/admin/edit/:userId" element={
-              <AdminRoute>
+              <AdminRoute> {/* Protect the edit user route */}
                 <EditUserPage />
               </AdminRoute>
             } />
