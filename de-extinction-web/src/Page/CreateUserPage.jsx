@@ -14,9 +14,13 @@ const CreateUserPage = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const userData = { name, email, password, admin: isAdmin };
-    await ApiService.createUser(userData);
-    alert('Usuario creado exitosamente');
-    navigate('/admin');
+    try {
+      await ApiService.createUser(userData);
+      alert('Usuario creado exitosamente');
+      navigate('/admin');
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   return (

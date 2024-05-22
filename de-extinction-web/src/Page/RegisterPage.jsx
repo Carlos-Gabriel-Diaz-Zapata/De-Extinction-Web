@@ -18,7 +18,7 @@ const RegisterPage = () => {
       alert('Cuenta creada exitosamente');
       navigate('/login');
     } catch (error) {
-      alert('Error creando cuenta');
+      alert(error.message);
     }
   };
 

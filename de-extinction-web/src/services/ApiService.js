@@ -26,6 +26,13 @@ const fetchAllUsers = async () => {
 // Función para crear un nuevo usuario
 const createUser = async (user) => {
   try {
+    // Verificar si el nombre de usuario ya existe
+    const existingUsers = await fetchAllUsers();
+    const userExists = existingUsers.some(existingUser => existingUser.name === user.name);
+    if (userExists) {
+      throw new Error('El nombre de usuario ya existe');
+    }
+    
     console.log('Iniciando creación de usuario', user);
     const response = await axios.post(`${API_BASE_URL}/users`, user);
     console.log('Usuario creado', response.data);
@@ -42,8 +49,7 @@ const createUser = async (user) => {
     return response.data;
   } catch (error) {
     console.error('Error creando usuario:', error);
-    // No lanzar error aquí para que no interrumpa el flujo principal
-    return null;
+    throw error;
   }
 };
 

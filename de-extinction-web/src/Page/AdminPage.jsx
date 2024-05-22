@@ -8,12 +8,11 @@ const AdminPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [users, setUsers] = useState([]);
 
-  // useEffect para cargar los usuarios cuando el componente se monta
   useEffect(() => {
     const fetchUsers = async () => {
       try {
         const data = await ApiService.fetchAllUsers();
-        console.log('Usuarios obtenidos:', data); // Log para verificar la estructura de los datos
+        console.log('Usuarios obtenidos:', data);
         setUsers(data);
       } catch (error) {
         console.error('Error fetching users:', error);
@@ -42,48 +41,51 @@ const AdminPage = () => {
   });
 
   return (
-    <div className='adminContainer'>
+    <div>
       <HeaderAdminPage />
-      <section>
-        <div className='centrado'>
-          <Link to="/admin/new" className="btn">
-            Nuevo
-          </Link>
-          <input
-            type="text"
-            placeholder="Buscar administradores..."
-            value={searchTerm}
-            onChange={handleSearchChange}
-            className="input"
-          />
-        </div>
-        <header className='col2'>
-          <div className="col">Id</div>
-          <div className="col">Nombre</div>
-          <div className="col">Email</div>
-          <div className="col">Administrador</div>
-          <div className="col">Acciones</div>
-        </header>
-
-        <div style={{ overflowY: 'auto', maxHeight: '500px', backgroundColor: '#1C1C1C' }}>
-          {filteredUsers.map((user) => (
-            <div className="row" key={user.userId}>
-              <div className="col"> {user.userId} </div>
-              <div className="col"> {user.name} </div>
-              <div className='col'> {user.email} </div>
-              <div className="col"> {user.admin ? 'Sí' : 'No'} </div>
-              <div className="col">
-                <Link to={`/admin/edit/${user.userId}`} className="btn btn-primary">
-                  Editar
-                </Link>
-                <button className="btn btn-danger" onClick={() => handleDelete(user.userId)}>
-                  Eliminar
-                </button>
-              </div>
+      <div className='adminContainer'>
+        <section className='contentSection'>
+          <div className='searchContainer'>
+            <Link to="/admin/new" className="btn">
+              Nuevo
+            </Link>
+            <input
+              type="text"
+              placeholder="Buscar administradores..."
+              value={searchTerm}
+              onChange={handleSearchChange}
+              className="input"
+            />
+          </div>
+            <div className='tableContent'>
+          <div className='tableWrapper'>
+            <div className='col2'>
+              <div className="col">Id</div>
+              <div className="col">Nombre</div>
+              <div className="col">Email</div>
+              <div className="col">Administrador</div>
+              <div className="col">Acciones</div>
             </div>
-          ))}
-        </div>
-      </section>
+              {filteredUsers.map((user) => (
+                <div className="row" key={user.userId}>
+                  <div className="col"> {user.userId} </div>
+                  <div className="col"> {user.name} </div>
+                  <div className='col'> {user.email} </div>
+                  <div className="col"> {user.admin ? 'Sí' : 'No'} </div>
+                  <div className="col actionCol">
+                    <Link to={`/admin/edit/${user.userId}`} className="btn btn-primary">
+                      Editar
+                    </Link>
+                    <button className="btn btn-danger" onClick={() => handleDelete(user.userId)}>
+                      Eliminar
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
   );
 };
