@@ -27,8 +27,7 @@ Instalar las dependencias:
 npm install
 Iniciar el servidor de desarrollo:
 
-bash
-Copiar código
+
 npm start
 El proyecto debería estar disponible en http://localhost:3000.
 
