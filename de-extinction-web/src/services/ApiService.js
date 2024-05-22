@@ -55,6 +55,13 @@ const createUser = async (user) => {
 
 // Función para actualizar un usuario existente
 const updateUser = async (id, user) => {
+  // Verificar si el nombre de usuario ya existe
+  const existingUsers = await fetchAllUsers();
+  const userExists = existingUsers.some(existingUser => existingUser.name === user.name && existingUser.id !== id);
+  if (userExists) {
+    throw new Error('El nombre de usuario ya existe');
+  }
+
   const response = await axios.put(`${API_BASE_URL}/users/${id}`, user);
   return response.data;
 };

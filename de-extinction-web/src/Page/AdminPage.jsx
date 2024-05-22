@@ -26,12 +26,17 @@ const AdminPage = () => {
     setSearchTerm(event.target.value);
   };
 
-  const handleDelete = async (userId) => {
-    try {
-      await ApiService.deleteUser(userId);
-      setUsers(users.filter((user) => user.userId !== userId));
-    } catch (error) {
-      console.error('Error deleting user:', error);
+  const handleDelete = async (userId, userName) => {
+    const confirmDelete = window.confirm(`¿Está seguro que desea eliminar permanentemente a "${userName}"?`);
+    if (confirmDelete) {
+      try {
+        await ApiService.deleteUser(userId);
+        setUsers(users.filter((user) => user.userId !== userId));
+        alert('Usuario eliminado exitosamente');
+      } catch (error) {
+        console.error('Error deleting user:', error);
+        alert('Error eliminando usuario');
+      }
     }
   };
 
@@ -76,7 +81,7 @@ const AdminPage = () => {
                     <Link to={`/admin/edit/${user.userId}`} className="btn btn-primary">
                       Editar
                     </Link>
-                    <button className="btn btn-danger" onClick={() => handleDelete(user.userId)}>
+                    <button className="btn btn-danger" onClick={() => handleDelete(user.userId, user.name)}>
                       Eliminar
                     </button>
                   </div>

@@ -34,7 +34,7 @@ const EditUserPage = () => {
       navigate('/admin');
     } catch (error) {
       console.error('Error actualizando usuario:', error);
-      alert('Error actualizando usuario');
+      alert(error.message);
     }
   };
 
