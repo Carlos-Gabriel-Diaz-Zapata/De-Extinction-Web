@@ -3,7 +3,12 @@ import { Link } from "react-router-dom";
 import "../layout/Css/HeaderAdminPage.css";
 import logo from "../assets/LogoDino.png";
 
-// HeaderCreateUsers component to display the header for the create users page
+/**
+ * HeaderCreateUsers component to display the header for the create users page.
+ * Contains a link to navigate back to the admin page, a title, and the company logo.
+ * 
+ * @returns {JSX.Element} The rendered HeaderCreateUsers component.
+ */
 const HeaderCreateUsers = () => {
   return (
     <header className="header-containerProfile2">

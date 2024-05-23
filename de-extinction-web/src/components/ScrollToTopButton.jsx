@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from "react";
 import "../components/css/ScrollToTopButton.css";
 
-// ScrollToTopButton component to provide a button that scrolls the page to the top
+/**
+ * ScrollToTopButton component.
+ * Provides a button that, when clicked, scrolls the page to the top.
+ */
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false); // State to manage button visibility
 
-  // Function to toggle button visibility based on scroll position
+  /**
+   * Toggles the button visibility based on the scroll position.
+   * Shows the button when the page is scrolled more than 300px.
+   */
   const toggleVisibility = () => {
     if (window.pageYOffset > 300) {
       setIsVisible(true); // Show button when scrolled more than 300px
@@ -14,15 +20,20 @@ const ScrollToTopButton = () => {
     }
   };
 
-  // Function to scroll the page to the top
+  /**
+   * Scrolls the page to the top with a smooth scroll effect.
+   */
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth", // Smooth scroll effect
+      behavior: "smooth",
     });
   };
 
-  // Set up event listener for scroll event to toggle button visibility
+  /**
+   * Sets up the scroll event listener to toggle button visibility.
+   * Cleans up the event listener on component unmount.
+   */
   useEffect(() => {
     window.addEventListener("scroll", toggleVisibility);
     return () => {

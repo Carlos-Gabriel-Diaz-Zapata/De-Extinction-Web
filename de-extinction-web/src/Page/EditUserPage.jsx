@@ -6,17 +6,23 @@ import HeaderEditUser from '../layout/HeaderEditUser';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-// This is a functional component that represents the EditUserPage
+/**
+ * EditUserPage component to edit an existing user's details.
+ * Fetches the user's current data, allows the admin to update it, and submit the changes.
+ * 
+ * @returns {JSX.Element} The rendered EditUserPage component.
+ */
 const EditUserPage = () => {
-  // These state variables store the values of the form fields
-  const { userId } = useParams();
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  // This variable uses the useNavigate hook to navigate to other pages
-  const navigate = useNavigate();
+  const { userId } = useParams(); // Get the userId from the URL parameters
+  const [name, setName] = useState(''); // State to store the user's name
+  const [email, setEmail] = useState(''); // State to store the user's email
+  const [password, setPassword] = useState(''); // State to store the user's password
+  const navigate = useNavigate(); // Hook to navigate to other pages
 
-  // This useEffect hook fetches the user data when the component mounts
+  /**
+   * useEffect hook to fetch the user's data when the component mounts.
+   * Fetches the user data from the API and updates the state.
+   */
   useEffect(() => {
     const fetchUser = async () => {
       try {
@@ -33,7 +39,11 @@ const EditUserPage = () => {
     fetchUser();
   }, [userId]);
 
-  // This function handles the submission of the form
+  /**
+   * Handles the form submission to update the user's details.
+   * 
+   * @param {React.FormEvent<HTMLFormElement>} event - The form submission event.
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -46,13 +56,12 @@ const EditUserPage = () => {
     }
   };
 
-  // This is the JSX returned by the component
   return (
     <div>
       <HeaderEditUser />
       <div className="edit-user-page">
         <div className="login-box">
-          {/* This form allows the user to edit an existing user */}
+          {/* Form to edit an existing user */}
           <form onSubmit={handleSubmit}>
             <div className="user-box">
               <input

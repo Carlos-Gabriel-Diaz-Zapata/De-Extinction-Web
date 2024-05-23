@@ -6,14 +6,23 @@ import fondoDino from "../assets/fondoDino.jpg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-// RegisterPage component for user registration
+/**
+ * RegisterPage component for user registration.
+ * Allows users to create a new account by providing an email, username, and password.
+ * 
+ * @returns {JSX.Element} The rendered RegisterPage component.
+ */
 const RegisterPage = () => {
   const [email, setEmail] = useState(""); // State to store email input
   const [name, setName] = useState(""); // State to store username input
   const [password, setPassword] = useState(""); // State to store password input
   const navigate = useNavigate(); // Hook to navigate programmatically
 
-  // Function to handle form submission
+  /**
+   * Handles the form submission to register a new user.
+   * 
+   * @param {React.FormEvent<HTMLFormElement>} event - The form submission event.
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
     const userData = { name, email, password }; // Gather user data from state
@@ -68,7 +77,7 @@ const RegisterPage = () => {
             <button className="buttonLog" type="submit">
               Crear Cuenta
             </button>
-            <p>¿Ya tiénes una cuenta?</p>
+            <p>¿Ya tienes una cuenta?</p>
             {/* Link to login page */}
             <Link to="/login">Iniciar Sesión</Link>
           </form>

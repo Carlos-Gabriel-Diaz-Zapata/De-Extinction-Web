@@ -10,11 +10,19 @@ import image2 from "../assets/Dino2G.png";
 import image3 from "../assets/Dino3G.png";
 import image4 from "../assets/Dino4G.png";
 
-// Scores component to display the top scores
+/**
+ * Scores component to display the top scores.
+ * Fetches the top scores from the API and displays them with corresponding trophy images.
+ * 
+ * @returns {JSX.Element} The rendered Scores component.
+ */
 const Scores = () => {
   const [scores, setScores] = useState([]); // State to store the scores
 
-  // useEffect hook to fetch scores when the component mounts
+  /**
+   * useEffect hook to fetch scores when the component mounts.
+   * Fetches the top scores from the API and updates the state.
+   */
   useEffect(() => {
     const fetchScores = async () => {
       try {
@@ -28,7 +36,12 @@ const Scores = () => {
     fetchScores();
   }, []);
 
-  // Function to get the trophy image based on the index
+  /**
+   * Gets the trophy image based on the index.
+   * 
+   * @param {number} index - The index of the score entry.
+   * @returns {string|null} The URL of the trophy image or null.
+   */
   const getTrophyImage = (index) => {
     switch (index) {
       case 0:
@@ -42,7 +55,11 @@ const Scores = () => {
     }
   };
 
-  // Function to get a random image for players beyond the top 3
+  /**
+   * Gets a random image for players beyond the top 3.
+   * 
+   * @returns {string} The URL of a random image.
+   */
   const getRandomImage = () => {
     const images = [image1, image2, image3, image4];
     return images[Math.floor(Math.random() * images.length)];

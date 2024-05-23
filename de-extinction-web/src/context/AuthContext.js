@@ -1,14 +1,26 @@
 import React, { createContext, useState, useEffect } from "react";
 import ApiService from "../services/ApiService";
 
-// Create an authentication context
+/**
+ * Creates an authentication context.
+ */
 export const AuthContext = createContext();
 
-// Authentication provider component
+/**
+ * Authentication provider component.
+ * Provides authentication-related state and functions to its children.
+ * 
+ * @param {Object} props - The component props.
+ * @param {React.ReactNode} props.children - The child components that require access to authentication state.
+ * @returns {React.ReactNode} The rendered AuthProvider component.
+ */
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null); // State to manage the authenticated user
 
-  // Effect to load the user from localStorage when the component mounts
+  /**
+   * Effect to load the user from localStorage when the component mounts.
+   * Sets the user state if a user is found in localStorage.
+   */
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
@@ -16,7 +28,14 @@ export const AuthProvider = ({ children }) => {
     }
   }, []);
 
-  // Function to handle user login
+  /**
+   * Handles user login.
+   * Authenticates the user with the provided username and password.
+   * 
+   * @param {string} username - The username of the user.
+   * @param {string} password - The password of the user.
+   * @throws {Error} Throws an error if the username or password is missing, or if authentication fails.
+   */
   const loginHandler = async (username, password) => {
     if (!username || !password) {
       throw new Error("Usuario y contraseña requerido.");
@@ -41,7 +60,10 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // Function to handle user logout
+  /**
+   * Handles user logout.
+   * Clears the user state and removes the user from localStorage.
+   */
   const logoutHandler = () => {
     setUser(null); // Clear the user state
     localStorage.removeItem("user"); // Remove the user from localStorage

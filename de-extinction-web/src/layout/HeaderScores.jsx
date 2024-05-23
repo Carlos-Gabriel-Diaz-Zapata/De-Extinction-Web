@@ -3,7 +3,12 @@ import { Link } from "react-router-dom";
 import "../layout/Css/HeaderScores.css";
 import logo from "../assets/LogoDino.png";
 
-// HeaderScores component to display the header for the scores page
+/**
+ * HeaderScores component to display the header for the scores page.
+ * Contains a link to navigate back to the home page, a title, and the company logo.
+ * 
+ * @returns {JSX.Element} The rendered HeaderScores component.
+ */
 const HeaderScores = () => {
   return (
     <header className="header-containerProfile2">

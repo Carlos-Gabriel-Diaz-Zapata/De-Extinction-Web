@@ -6,16 +6,23 @@ import "../Page/Css/LoginPage.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-// This is a functional component that represents the LoginPage
+/**
+ * LoginPage component to allow users to log in.
+ * Displays a form where users can enter their username and password to log in.
+ * 
+ * @returns {JSX.Element} The rendered LoginPage component.
+ */
 const LoginPage = () => {
-  // These state variables store the values of the form fields
-  const { login } = useContext(AuthContext);
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  // This variable uses the useNavigate hook to navigate to other pages
-  const navigate = useNavigate();
+  const { login } = useContext(AuthContext); // Access the login function from AuthContext
+  const [username, setUsername] = useState(""); // State to store the username
+  const [password, setPassword] = useState(""); // State to store the password
+  const navigate = useNavigate(); // Hook to navigate to other pages
 
-  // This function handles the submission of the form
+  /**
+   * Handles the submission of the login form.
+   * 
+   * @param {React.FormEvent<HTMLFormElement>} event - The form submission event.
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (!username || !password) {
@@ -26,7 +33,7 @@ const LoginPage = () => {
       return;
     }
     try {
-      // Call the login function from the AuthContext
+      // Call the login function from AuthContext
       await login(username, password);
       // Display a success message and navigate to the home page
       alert("Inicio de sesión exitoso");
@@ -37,14 +44,13 @@ const LoginPage = () => {
     }
   };
 
-  // This is the JSX returned by the component
   return (
     <div className="login-container">
       <img src={fondoDino} alt="T-Rex" className="t-rex-image" />
       <div className="form-container">
         <div className="computer-screen">
           <h2>Iniciar Sesión</h2>
-          {/* This form allows the user to log in */}
+          {/* Form to log in */}
           <form onSubmit={handleSubmit}>
             <input
               type="text"

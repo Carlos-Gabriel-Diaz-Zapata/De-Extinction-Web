@@ -6,12 +6,20 @@ import HeaderAdminPage from "../layout/HeaderAdminPage";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-// AdminPage component to manage users
+/**
+ * AdminPage component to manage users.
+ * Allows searching, displaying, editing, and deleting users.
+ * 
+ * @returns {JSX.Element} The rendered AdminPage component.
+ */
 const AdminPage = () => {
   const [searchTerm, setSearchTerm] = useState(""); // State to store search term for filtering users
   const [users, setUsers] = useState([]); // State to store the list of users
 
-  // useEffect hook to fetch users when the component mounts
+  /**
+   * useEffect hook to fetch users when the component mounts.
+   * Fetches all users from the API and updates the state.
+   */
   useEffect(() => {
     const fetchUsers = async () => {
       try {
@@ -26,19 +34,31 @@ const AdminPage = () => {
     fetchUsers();
   }, []);
 
-  // Function to handle changes in the search input
+  /**
+   * Handles changes in the search input.
+   * Updates the search term state.
+   * 
+   * @param {React.ChangeEvent<HTMLInputElement>} event - The change event from the search input.
+   */
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value); // Update search term state
   };
 
-  // Function to handle user deletion
+  /**
+   * Handles user deletion.
+   * Confirms deletion and deletes user via API if confirmed.
+   * Updates the state to remove the deleted user and shows a notification.
+   * 
+   * @param {number} userId - The ID of the user to delete.
+   * @param {string} userName - The name of the user to delete.
+   */
   const handleDelete = async (userId, userName) => {
     const confirmDelete = window.confirm(
       `¿Está seguro que desea eliminar permanentemente a "${userName}"?`
-    ); // Confirm deletion
+    ); 
     if (confirmDelete) {
       try {
-        await ApiService.deleteUser(userId); // Delete user via API
+        await ApiService.deleteUser(userId); 
         setUsers(users.filter((user) => user.userId !== userId)); // Update state to remove deleted user
         toast.success("Usuario eliminado exitosamente"); // Show success notification
       } catch (error) {
@@ -48,7 +68,11 @@ const AdminPage = () => {
     }
   };
 
-  // Filter users based on search term
+  /**
+   * Filters users based on the search term.
+   * 
+   * @returns {Array} The filtered list of users.
+   */
   const filteredUsers = users.filter((user) => {
     const fullName = `${user.name}`;
     return fullName.toLowerCase().includes(searchTerm.toLowerCase()); // Check if user's name includes search term

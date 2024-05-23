@@ -4,38 +4,57 @@ import { AuthContext } from "../context/AuthContext";
 import logo from "../assets/LogoDino.png";
 import "../layout/Css/Header.css";
 
-// Header component to display the top navigation bar
+/**
+ * Header component to display the top navigation bar.
+ * Contains navigation buttons, a logo, and options for user interactions based on authentication status.
+ * 
+ * @returns {JSX.Element} The rendered Header component.
+ */
 const Header = () => {
   const navigate = useNavigate();
   const { user, logout } = useContext(AuthContext); // Access user and logout function from AuthContext
 
-  // Function to navigate to the profile page
+  /**
+   * Navigates to the profile page.
+   */
   const handleProfile = () => {
     navigate("/profile");
   };
 
-  // Function to navigate to the scores page
+  /**
+   * Navigates to the scores page.
+   */
   const handleScores = () => {
     navigate("/scores");
   };
 
-  // Function to navigate to the admin page
+  /**
+   * Navigates to the admin page.
+   */
   const handleAdmin = () => {
     navigate("/admin");
   };
 
-  // Function to navigate to the login page
+  /**
+   * Navigates to the login page.
+   */
   const handleLoginButtonClick = () => {
     navigate("/login");
   };
 
-  // Function to handle user logout
+  /**
+   * Logs out the user and navigates to the home page.
+   */
   const handleLogout = () => {
     logout();
     navigate("/");
   };
 
-  // Function to smoothly scroll to a section of the page
+  /**
+   * Smoothly scrolls to a section of the page.
+   * 
+   * @param {string} id - The id of the section to scroll to.
+   */
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
     if (section) {
@@ -73,7 +92,8 @@ const Header = () => {
             <button className="header-button" onClick={handleScores}>
               Puntuaciones
             </button>
-            {user.admin && ( // Show Admin button only if user is an admin
+            {user.admin && (
+              // Show Admin button only if user is an admin
               <button className="header-button" onClick={handleAdmin}>
                 Administrador
               </button>

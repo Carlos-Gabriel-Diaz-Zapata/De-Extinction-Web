@@ -3,7 +3,12 @@ import { Link } from "react-router-dom";
 import "../layout/Css/HeaderAdminPage.css";
 import logo from "../assets/LogoDino.png";
 
-// HeaderAdminPage component to display the header for the admin page
+/**
+ * HeaderAdminPage component to display the header for the admin page.
+ * Contains a link to navigate back to the home page, a title, and the company logo.
+ * 
+ * @returns {JSX.Element} The rendered HeaderAdminPage component.
+ */
 const HeaderAdminPage = () => {
   return (
     <header className="header-containerProfile2">

@@ -6,47 +6,48 @@ import HeaderCreateUsers from '../layout/HeaderCreateUser';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-// This is a functional component that represents the CreateUserPage
+/**
+ * CreateUserPage component to create a new user.
+ * Allows an admin to fill out a form and submit it to create a new user.
+ * 
+ * @returns {JSX.Element} The rendered CreateUserPage component.
+ */
 const CreateUserPage = () => {
-  // These state variables store the values of the form fields
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [isAdmin, setIsAdmin] = useState(false);
-  // This variable uses the useNavigate hook to navigate to other pages
-  const navigate = useNavigate();
+  const [name, setName] = useState(''); // State to store the user's name
+  const [email, setEmail] = useState(''); // State to store the user's email
+  const [password, setPassword] = useState(''); // State to store the user's password
+  const [isAdmin, setIsAdmin] = useState(false); // State to store the user's admin status
+  const navigate = useNavigate(); // Hook to navigate to other pages
 
-  // This function handles the submission of the form
+  /**
+   * Handles the form submission to create a new user.
+   * 
+   * @param {React.FormEvent<HTMLFormElement>} event - The form submission event.
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // Create an object with the form data
-    const userData = { name, email, password, admin: isAdmin };
+    const userData = { name, email, password, admin: isAdmin }; // Create an object with the form data
     try {
-      // Call the API service to create a new user
-      await ApiService.createUser(userData);
-      // Show an alert to indicate success
-      alert('Usuario creado exitosamente');
-      // Navigate to the admin page
-      navigate('/admin');
+      await ApiService.createUser(userData); // Call the API service to create a new user
+      alert('Usuario creado exitosamente'); // Show an alert to indicate success
+      navigate('/admin'); // Navigate to the admin page
     } catch (error) {
       if (error.message === 'El nombre de usuario ya existe') {
-        // Show a toast notification if the error message is "El nombre de usuario ya existe"
-        toast.error('El nombre de usuario ya existe');
+        toast.error('El nombre de usuario ya existe'); // Show a toast notification if the username already exists
       } else {
-        toast.error('Error creando usuario');
+        toast.error('Error creando usuario'); // Show a generic error notification
       }
       console.error('Error creando usuario:', error);
     }
   };
 
-  // This is the JSX returned by the component
   return (
     <div>
       <HeaderCreateUsers />
       <div className="edit-user-page">
         <div className="create-user-container">
           <h2>Crear Nuevo Usuario</h2>
-          {/* This form allows the user to create a new user */}
+          {/* Form to create a new user */}
           <form onSubmit={handleSubmit}>
             <div className="form-group user-box">
               <input
@@ -61,7 +62,7 @@ const CreateUserPage = () => {
               <input
                 type="email"
                 value={email}
-              onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
                 required
               />
               <label>Email</label>

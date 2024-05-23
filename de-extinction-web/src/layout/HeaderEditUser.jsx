@@ -3,7 +3,12 @@ import { Link } from "react-router-dom";
 import "../layout/Css/HeaderAdminPage.css";
 import logo from "../assets/LogoDino.png";
 
-// HeaderEditUser component to display the header for the edit user page
+/**
+ * HeaderEditUser component to display the header for the edit user page.
+ * Contains a link to navigate back to the admin page, a title, and the company logo.
+ * 
+ * @returns {JSX.Element} The rendered HeaderEditUser component.
+ */
 const HeaderEditUser = () => {
   return (
     <header className="header-containerProfile2">

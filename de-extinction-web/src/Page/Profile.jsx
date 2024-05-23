@@ -3,11 +3,20 @@ import "../Page/Css/Profile.css";
 import HeaderProfile from "../layout/HeaderProfile";
 import { AuthContext } from "../context/AuthContext";
 
-// Profile component to display user's profile information
+/**
+ * Profile component to display user's profile information.
+ * Shows user's email, username, and password.
+ * 
+ * @returns {JSX.Element} The rendered Profile component.
+ */
 const Profile = () => {
   const { user } = useContext(AuthContext); // Access user from AuthContext
 
-  // If no user is authenticated, show a message
+  /**
+   * If no user is authenticated, show a message.
+   * 
+   * @returns {JSX.Element} A message indicating the user is not authenticated.
+   */
   if (!user) {
     return <div>No estás autenticado</div>;
   }

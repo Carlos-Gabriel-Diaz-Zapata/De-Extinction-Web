@@ -5,11 +5,18 @@ import dino3 from '../assets/Dino3G.png';
 import dino4 from '../assets/Dino4G.png';
 import '../Page/Css/WeAreDeExtinction.css';
 
-// WeAreDeExtinction component to display information about different dinosaurs
+/**
+ * WeAreDeExtinction component to display information about different dinosaurs.
+ * Allows users to select a dinosaur and view its image and description.
+ * 
+ * @returns {JSX.Element} The rendered WeAreDeExtinction component.
+ */
 const WeAreDeExtinction = () => {
   const [selectedDino, setSelectedDino] = useState(null); // State to store the selected dinosaur
 
-  // Array of dinosaur objects containing id, image, and description
+  /**
+   * Array of dinosaur objects containing id, image, and description.
+   */
   const dinos = [
     { id: 1, img: dino1, description: 'Un dinosaurio curioso y aventurero que siempre está en busca de nuevas aventuras.' },
     { id: 2, img: dino2, description: 'Un dinosaurio amigable y protector que se preocupa por sus amigos, le encanta el bosque.' },

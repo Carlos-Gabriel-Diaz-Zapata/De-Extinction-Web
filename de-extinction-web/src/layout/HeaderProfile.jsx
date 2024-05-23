@@ -3,7 +3,12 @@ import { Link } from "react-router-dom";
 import "../layout/Css/HeaderProfile.css";
 import logo from "../assets/LogoDino.png";
 
-// HeaderProfile component to display the header for the profile page
+/**
+ * HeaderProfile component to display the header for the profile page.
+ * Contains a link to navigate back to the home page, a title, and the company logo.
+ * 
+ * @returns {JSX.Element} The rendered HeaderProfile component.
+ */
 const HeaderProfile = () => {
   return (
     <header className="header-containerProfile1">

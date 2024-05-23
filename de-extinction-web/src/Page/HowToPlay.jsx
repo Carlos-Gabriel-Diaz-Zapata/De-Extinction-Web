@@ -4,9 +4,16 @@ import Mecanicas from '../assets/Mecanica.png';
 import Objetivo from '../assets/Objetivo.png';
 import '../Page/Css/HowToPlay.css';
 
-// HowToPlay component to display the instructions on how to play the game
+/**
+ * HowToPlay component to display the instructions on how to play the game.
+ * Contains cards with images, titles, and descriptions explaining the game objectives, mechanics, and tips.
+ * 
+ * @returns {JSX.Element} The rendered HowToPlay component.
+ */
 const HowToPlay = () => {
-  // Array of card objects containing image, title, and description for each card
+  /**
+   * Array of card objects containing image, title, and description for each card.
+   */
   const cards = [
     {
       img: Objetivo,
