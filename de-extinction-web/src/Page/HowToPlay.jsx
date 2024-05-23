@@ -23,7 +23,7 @@ const HowToPlay = () => {
     {
       img: Mecanicas,
       title: 'Mecánica de juego',
-      description: '"De-Extinction" es un juego de tipo "Plataforma y Acción" en el que el dinosaurio corre automáticamente. El jugador debe controlar los saltos del dinosaurio para evitar obstáculos y recolectar bonificaciones. Los controles son simples, con un solo botón para saltar.'
+      description: '"De-Extinction" es un juego de tipo "Infinite Runner" en el que el dinosaurio corre automáticamente. El jugador debe controlar los saltos del dinosaurio para evitar obstáculos y recolectar bonificaciones. Los controles son simples, con un solo botón para saltar.'
     },
     {
       img: Consejo,
