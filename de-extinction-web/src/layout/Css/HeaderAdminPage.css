@@ -1,0 +1,46 @@
+.header-containerProfile2 {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #212121;
+    color: #fff;
+  }
+
+  .header-centerProfile2{
+    flex-grow: 1; 
+   text-align: center; 
+  }
+  .header-leftProfile2 {
+    display: flex;
+  }
+
+  .header-logoProfile2 {
+    width: 80px; 
+    height: auto;
+  }
+  
+  .header-buttonProfile2 {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .header-buttonProfile2:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .header-titleProfile2 {
+    font-size: 24px;
+  }
+
+.header-rightProfile2{
+    justify-content: center;
+}
+
+
+  

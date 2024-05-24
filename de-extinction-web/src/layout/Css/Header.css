@@ -1,0 +1,49 @@
+/******************************
+            HEADER
+******************************/
+.header-container {
+  background-color: #212121;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
+}
+
+.header-left {
+  display: flex;
+  gap: 10px;
+}
+
+.header-center {
+  display: flex;
+  gap: 10px;
+}
+
+.header-right {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.header-button {
+  background-color: transparent;
+  border: 2px solid white; 
+  color: white; 
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold; 
+  padding: 10px 20px; 
+  transition: color 0.3s, background-color 0.3s; 
+  border-radius: 4px; 
+}
+
+.header-button:hover {
+  color: white; 
+  background-color: green; 
+}
+
+.header-logo {
+  width: 100px; 
+  height: auto;
+}

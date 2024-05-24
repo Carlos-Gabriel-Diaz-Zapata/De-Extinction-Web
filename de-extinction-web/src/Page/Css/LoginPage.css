@@ -1,0 +1,67 @@
+/****************************
+         LOGINPAGE
+****************************/
+
+.login-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    overflow: hidden;
+  }
+  
+.computer-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; 
+  }
+  
+  h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    text-align: center; 
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+    text-align: left; 
+  }
+  
+  p {
+    font-size: 12px;
+    margin-top: 20px;
+    text-align: center; 
+  }
+  
+  .input-container {
+    width: 80%; 
+    margin-bottom: 20px;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    background-color: #f3f3f3;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #f2f2f2;
+  }
+
+  .buttonLog {
+    background-color: #1C77AB;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%; 
+  }
+  
+  .buttonLog:hover {
+    background-color: #14546D;
+  }
+  

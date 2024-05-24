@@ -1,0 +1,114 @@
+.container3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.title4 {
+  margin-bottom: 20px;
+  font-size: 3rem;
+  color: #8FF000; 
+}
+
+.content-area {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 60px; 
+}
+
+.dino-button {
+  background: #e0e0e0; 
+  border: none;
+  margin: 10px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.dino-button img {
+  width: 50px;
+  height: 50px;
+}
+
+.dino-button.selected {
+  transform: scale(1.2) rotate(10deg); 
+  background-color: #cccccc; 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); 
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card2 {
+  width: 100%;
+  max-width: 400px; 
+  padding: 100px;
+  text-align: center;
+  border: none; 
+}
+
+.dino-image img {
+  width: 100%;
+  max-width: 150px; 
+}
+
+.dino-description {
+  margin-top: 20px;
+  color: white;
+}
+
+.placeholder {
+  text-align: center;
+  color: gray;
+}
+
+/* Animaciones */
+@keyframes fire-animation {
+  0% { background: url('../../assets/Fuego.gif') no-repeat center center; background-size: cover; }
+  100% { background: url('../../assets/Fuego.gif') no-repeat center center; background-size: cover; }
+}
+
+@keyframes snow-animation {
+  0% { background: url('../../assets/Estrella.gif') no-repeat center center; background-size: cover; }
+  100% { background: url('../../assets/Estrella.gif') no-repeat center center; background-size: cover; }
+}
+
+@keyframes leaves-animation {
+  0% { background: url('../../assets/Hojas.gif') no-repeat center center; background-size: cover; }
+  100% { background: url('../../assets/Hojas.gif') no-repeat center center; background-size: cover; }
+}
+
+@keyframes water-animation {
+  0% { background: url('../../assets/Lluvia.gif') no-repeat center center; background-size: cover; }
+  100% { background: url('../../assets/Lluvia.gif') no-repeat center center; background-size: cover; }
+}
+
+.animate-1 .dino-image {
+  animation: water-animation 3s infinite;
+}
+
+.animate-2 .dino-image {
+  animation: leaves-animation 3s infinite;
+}
+
+.animate-3 .dino-image {
+  animation: snow-animation 3s infinite;
+}
+
+.animate-4 .dino-image {
+  animation: fire-animation 3s infinite;
+}

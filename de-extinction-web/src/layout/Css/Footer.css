@@ -1,0 +1,28 @@
+
+/****************************
+          FOOTER
+****************************/
+.footer-container {
+    background-color: #212121;
+    color: white;
+    padding: 50px;
+    text-align: center;
+  }
+  
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 5px; 
+  }
+  
+  .social-icons img {
+    width: 30px; 
+    height: 30px;
+  }
+  
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
