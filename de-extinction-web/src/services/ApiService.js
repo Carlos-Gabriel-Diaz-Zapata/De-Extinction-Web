@@ -100,10 +100,6 @@ const updateUser = async (id, user) => {
   const userExists = existingUsers.some(
     (existingUser) => existingUser.name === user.name && existingUser.id !== id
   );
-  if (userExists) {
-    throw new Error("El nombre de usuario ya existe");
-  }
-
   const response = await axios.put(`${API_BASE_URL}/users/${id}`, user);
   return response.data;
 };

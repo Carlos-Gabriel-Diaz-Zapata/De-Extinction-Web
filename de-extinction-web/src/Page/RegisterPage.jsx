@@ -5,6 +5,7 @@ import "../Page/Css/RegisterPage.css";
 import fondoDino from "../assets/fondoDino.jpg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import hashPassword from "../utils/PasswordHasher";
 
 /**
  * RegisterPage component for user registration.
@@ -25,7 +26,9 @@ const RegisterPage = () => {
    */
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const userData = { name, email, password }; // Gather user data from state
+    const hashedPassword = await hashPassword(password);
+
+    const userData = { name, email, password: hashedPassword }; // Gather user data from state
     try {
       await ApiService.createUser(userData); // Call API to create a new user
       alert("Usuario creado exitosamente"); // Show success alert

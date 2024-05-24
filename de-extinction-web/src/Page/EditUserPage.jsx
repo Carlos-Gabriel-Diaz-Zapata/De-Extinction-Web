@@ -5,6 +5,7 @@ import '../Page/Css/EditUserPage.css';
 import HeaderEditUser from '../layout/HeaderEditUser';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import hashPassword from "../utils/PasswordHasher";
 
 /**
  * EditUserPage component to edit an existing user's details.
@@ -47,7 +48,8 @@ const EditUserPage = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await ApiService.updateUser(userId, { name, email, password });
+      const hashedPassword = await hashPassword(password);
+      await ApiService.updateUser(userId, { name, email, password: hashedPassword });
       toast.success('Usuario actualizado exitosamente');
       navigate('/admin');
     } catch (error) {

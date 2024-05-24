@@ -5,6 +5,7 @@ import fondoDino from "../assets/fondoDino.jpg";
 import "../Page/Css/LoginPage.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import hashPassword from "../utils/PasswordHasher";
 
 /**
  * LoginPage component to allow users to log in.
@@ -33,12 +34,14 @@ const LoginPage = () => {
       return;
     }
     try {
+      const hashedPassword = await hashPassword(password);
       // Call the login function from AuthContext
-      await login(username, password);
+      await login(username, hashedPassword);
       // Display a success message and navigate to the home page
       alert("Inicio de sesión exitoso");
       navigate("/");
     } catch (error) {
+      console.log(hashPassword(password))
       // Display an error message if the login fails
       toast.error(error.message);
     }
