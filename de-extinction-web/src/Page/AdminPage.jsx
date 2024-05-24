@@ -92,7 +92,7 @@ const AdminPage = () => {
             {/* Search input to filter users */}
             <input
               type="text"
-              placeholder="Buscar administradores..."
+              placeholder="Buscar usuarios..."
               value={searchTerm}
               onChange={handleSearchChange}
               className="input"
