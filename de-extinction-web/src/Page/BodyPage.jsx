@@ -25,7 +25,7 @@ const BodyPage = () => {
             ¡Corre sin límites en un mundo donde la aventura nunca termina!
           </h3>
           {/* Button element to allow the user to download the game */}
-          <a href="../../assets/De-Extinction-Exported.zip" className="button1" download>Descargar</a>
+          <a href="/assets/De-Extinction-Exported.zip" className="button1" download>Descargar</a>
         </div>
       </div>
     </div>
