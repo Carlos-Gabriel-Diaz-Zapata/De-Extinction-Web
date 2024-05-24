@@ -46,13 +46,21 @@ const fetchAllUsers = async () => {
  */
 const createUser = async (user) => {
   try {
-    // Check if the username already exists
+    // Check if the username or email already exists
     const existingUsers = await fetchAllUsers();
     const userExists = existingUsers.some(
       (existingUser) => existingUser.name === user.name
     );
+    const emailExists = existingUsers.some(
+      (existingUser) => existingUser.email === user.email
+    );
+
     if (userExists) {
       throw new Error("El nombre de usuario ya existe");
+    }
+
+    if (emailExists) {
+      throw new Error("El correo electrónico ya existe");
     }
 
     console.log("Iniciando creación de usuario", user);
@@ -73,6 +81,7 @@ const createUser = async (user) => {
     return response.data;
   } catch (error) {
     console.error("Error creando usuario:", error);
+    // Re-throwing the error to be handled in the component
     throw error;
   }
 };

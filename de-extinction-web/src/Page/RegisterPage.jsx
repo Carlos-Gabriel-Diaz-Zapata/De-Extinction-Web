@@ -31,7 +31,13 @@ const RegisterPage = () => {
       alert("Usuario creado exitosamente"); // Show success alert
       navigate("/login"); // Navigate to login page
     } catch (error) {
-      toast.error(error.message || "Error creando cuenta"); // Show error toast
+      if (error.message.includes("correo electrónico")) {
+        toast.error("Este correo electrónico ya está registrado");
+      } else if (error.message.includes("nombre de usuario")) {
+        toast.error("Este nombre de usuario ya está registrado");
+      } else {
+        toast.error("Error creando cuenta");
+      }
     }
   };
 
