@@ -5,6 +5,7 @@ import '../Page/Css/CreateUserPage.css';
 import HeaderCreateUsers from '../layout/HeaderCreateUser';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import hashPassword from "../utils/PasswordHasher";
 
 /**
  * CreateUserPage component to create a new user.
@@ -26,7 +27,8 @@ const CreateUserPage = () => {
    */
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const userData = { name, email, password, admin: isAdmin }; // Create an object with the form data
+    const hashedPassword = await hashPassword(password);
+    const userData = { name, email, password: hashedPassword, admin: isAdmin }; // Create an object with the form data
     try {
       await ApiService.createUser(userData); // Call the API service to create a new user
       alert('Usuario creado exitosamente'); // Show an alert to indicate success
